@@ -1,17 +1,14 @@
 #OLEG SHLYUBSKIY version 1/8
 user_name = input("Hi what Your NAME?: ")
 users = []
-temp_list=[]
 users.append(user_name)
 watched_movies = {"matrix": 9.0, "Thor love and thunder": 8.3, "green book": 8.3, "her": 8.1,
 "the evil dead": 7.8, "forrest gump": 9.2, "life aquatic": 9.5, "life of bryan": 7.9, "first blood": 8.9}
 #lists (here RAM of all prog)
-movies_to_watch = {}
-
+movies_to_watch = []
 rait = []
 user_movie_rait=[]
 #here need only one if oleg oleg this 1
-movies_to_watch_qua=len(set(movies_to_watch))
 users_quantity=len(set(users))
 
 
@@ -21,8 +18,6 @@ while flag:
 
     users_quantity = len(set(users))
     user_movie = input("Enter a name of a movie you've recently watched,“cu” to change user or “q” to quit: ")
-    movies_to_watch_qua =len(set(movies_to_watch))
-
     if user_movie.casefold() != 'q':            #dont take if not q or cu!
         if user_movie.casefold() != 'cu':
 #function to user name and movies
@@ -42,8 +37,7 @@ while flag:
                 user_rait = int(input("I haven't watched that how would you rate it on a scale from 1 to 9 ? : ")) # "I haven't watched that one yet, how would you rate it on a scale from 1 to 10? "###
                 if user_rait >= 7:                                                                                 #raiting
                     rait.append(user_rait)
-                    temp_list.append({user_movie:user_rait}) # If the rating is 7 or higher than the movie will be saved in a dictionary with a user_name as
-                    movies_to_watch[user_name] = {user_movie: user_rait}
+                    movies_to_watch.append({user_movie:user_rait}) # If the rating is 7 or higher than the movie will be saved in a dictionary with a user_name as
                     print("will be saved in a dictionary with a user_name" )
 
                 else:
@@ -53,10 +47,10 @@ while flag:
     if user_movie == "q":
         print("okey bue")
         if users_quantity == 1:   #if 1
-            print(f"Well we had {users_quantity} users today going by the names: {users} and nothing was added to movies_to_watch {movies_to_watch}")
+            print(f"Well we had {users_quantity} users today going by the names: {users} and was added to movies to watch {movies_to_watch}")
 
         else:                     #else something else
-            print(f"Well we had {users_quantity} users today going by the names: {users} and these were added to movies_to_watch {movies_to_watch}")
+            print(f"Well we had {users_quantity} users today going by the names: {users} and was added to movies to watch {movies_to_watch}")
 
         flag = False
 
